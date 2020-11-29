@@ -1,0 +1,22 @@
+#deployment of nginx container
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx  # labels to match the cluster with the node and with the pod
+spec: #nodes specification
+  replicas: 3 #making 3 node-replicas in the cluster
+  selector:
+    matchLabels:
+      app: nginx 
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec: #pods specifications
+      containers:
+      - name: nginx 
+        image: nginx:1.7.9 #image running in the pod 
+        ports:
+        - containerPort: 80 #port of the pod that image will be running on
