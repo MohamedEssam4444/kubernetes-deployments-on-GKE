@@ -12,3 +12,4 @@ spec:
   - protocol: TCP
     port: 60000 #port exposed of the service , on that port service is listening to connections and map it to port 80 on pod
     targetPort: 80
+#This manifest defines a service and applies it to Pods that correspond to the selector. In this case, the manifest is applied to the nginx container that you deployed in task 1. This service also applies to any other Pods with the app: nginx label, including any that are created after the service.
