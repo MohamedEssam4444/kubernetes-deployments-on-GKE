@@ -1,0 +1,14 @@
+# deploys a LoadBalancer service type. This service is configured to distribute inbound traffic on TCP port 60000 to port 80 on any containers that have the label app: nginx.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 60000 #port exposed of the service , on that port service is listening to connections and map it to port 80 on pod
+    targetPort: 80
